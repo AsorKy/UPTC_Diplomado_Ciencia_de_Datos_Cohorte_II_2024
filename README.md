@@ -20,4 +20,14 @@ Este repositorio está dirigido a las personas que quieran obtener algún tipo d
 
 ## Métodos no supervisados
 
+### Reducción de dimensión
+
+- [Introducción a la reducción de dimensionalidad](./4_Métodos_No_Supervisados/Cuadernos/0_intro_red_dim.ipynb)
+- [Análisis de Componentes Principales](./4_Métodos_No_Supervisados/Cuadernos/1_ACP.ipynb)
+- [t-SNE](./4_Métodos_No_Supervisados/Cuadernos/2_TSNE.ipynb)
+- [UMAP](./4_Métodos_No_Supervisados/Cuadernos/3_UMAP.ipynb)
+- [TriMAP](./4_Métodos_No_Supervisados/Cuadernos/4_TriMAP.ipynb)
+- [PaCMAP](./4_Métodos_No_Supervisados/Cuadernos/5_PaCMAP.ipynb)
+- [Métodos de mezclas gaussianas]()
+
 ## Aprendizaje profundo
