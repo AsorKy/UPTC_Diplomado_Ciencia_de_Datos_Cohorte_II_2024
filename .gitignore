@@ -1,0 +1,10 @@
+# DS_Store MAC
+.DS_Store
+*/.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Template
+template.ipynb
