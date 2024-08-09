@@ -170,3 +170,36 @@ def Anscombe():
 
     plt.tight_layout()
     plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------- Contorno de Densidad -----------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+    
+def graficar_densidad(X, Y, Z):
+    plt.figure(figsize=(8, 6))
+    plt.contourf(X, Y, Z, levels=20, cmap='viridis')
+    plt.colorbar(label='Densidad de Probabilidad')
+    plt.title('Densidad de Probabilidad Bivariada')
+    plt.xlabel('Variable 1')
+    plt.ylabel('Variable 2')
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------- Plot 3D de Densidad -----------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+    
+
+def graficar_densidad_3d(X, Y, Z):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
+    
+    # Gráfico de superficie 3D
+    ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none')
+    ax.set_title('Densidad de Probabilidad Bivariada en 3D')
+    ax.set_xlabel('Variable 1')
+    ax.set_ylabel('Variable 2')
+    ax.set_zlabel('Densidad de Probabilidad')
+    
+    plt.show()
