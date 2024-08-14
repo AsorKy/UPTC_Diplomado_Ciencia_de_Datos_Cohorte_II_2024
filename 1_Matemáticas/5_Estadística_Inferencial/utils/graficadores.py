@@ -104,8 +104,91 @@ def graficar_eem(sample_means,population_mean, eem):
     plt.grid(linestyle='--', alpha=0.7)
     plt.legend()
     plt.show()
+    
+    
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------- Graficador de ejemplo intervalos de confianza media -------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+    
+
+def graficar_ID_normal(data, mu, ci):
+    plt.figure(figsize=(8, 4))
+    plt.hist(sample_means, bins=30, density=True, alpha=0.6, color='blue', edgecolor='black')
+    plt.axvline(mu, color='red', linestyle='--', label=f'Media Poblacional ({mu})')
+    plt.axvline(ci[0], color='green', linestyle='--', label=f'IC 95% ({ci[0]:.2f}, {ci[1]:.2f})')
+    plt.axvline(ci[1], color='green', linestyle='--')
+    plt.title('Distribución de las Medias Muestrales con Intervalo de Confianza')
+    plt.xlabel('Media Muestral')
+    plt.ylabel('Frecuencia')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------- Graficador right-tail normal test ----------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
   
+def graficar_right_normal_test(x_min, x_max, mu_population, mu_sample, sem, critical_value):
+    x = np.linspace(x_min, x_max, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=mu_population, scale=sem)
+    plt.plot(x, y, label='Distribución Normal')
+    plt.fill_between(x, y, where=(x >= critical_value), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(mu_sample, color='blue', linestyle='dashed', linewidth=2, label=f'Media Muestral = {mu_sample:.2f}')
+    plt.axvline(critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {critical_value:.2f}')
+    plt.title('Right-Tailed Test (Distribución Normal General)')
+    plt.xlabel('Valor')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
   
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------- Graficador left-tail normal test -----------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+ 
+
+def graficar_left_normal_test(x_min, x_max, mu_population, mu_sample, sem, critical_value):
+    x = np.linspace(x_min, x_max, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=mu_population, scale=sem)
+    plt.plot(x, y, label='Distribución Normal')
+    plt.fill_between(x, y, where=(x <= critical_value), color='blue', alpha=0.5, label='Región de rechazo')
+    plt.axvline(mu_sample, color='red', linestyle='dashed', linewidth=2, label=f'Media Muestral = {mu_sample:.2f}')
+    plt.axvline(critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {critical_value:.2f}')
+    plt.title('Left-Tailed Test (Distribución Normal General)')
+    plt.xlabel('Valor')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------- Graficador two-tail normal test -----------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
+ 
+def graficar_two_normal_test(x_min, x_max, mu_population, mu_sample, sem, critical_value_lower, critical_value_upper):
+    x = np.linspace(x_min, x_max, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=mu_population, scale=sem)
+    plt.plot(x, y, label='Distribución Normal')
+    plt.fill_between(x, y, where=(x <= critical_value_lower) | (x >= critical_value_upper), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(mu_sample, color='blue', linestyle='dashed', linewidth=2, label=f'Media Muestral = {mu_sample:.2f}')
+    plt.axvline(critical_value_lower, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Inferior = {critical_value_lower:.2f}')
+    plt.axvline(critical_value_upper, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Superior = {critical_value_upper:.2f}')
+    plt.title('Two-Sided Test (Distribución Normal General)')
+    plt.xlabel('Valor')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+    
 #--------------------------------------------------
 
 
