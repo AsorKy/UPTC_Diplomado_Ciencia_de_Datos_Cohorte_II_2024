@@ -187,7 +187,159 @@ def graficar_two_normal_test(x_min, x_max, mu_population, mu_sample, sem, critic
     plt.legend()
     plt.grid(linestyle='--', alpha=0.7)
     plt.show()
+
+
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------------------ Graficador right-tail Z test -------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
+  
+def graficar_right_z_test(z_critical_value, z_statistic):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=0, scale=1)
+    plt.plot(x, y, label='Distribución Z')
+    plt.fill_between(x, y, where=(x >= z_critical_value), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(z_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor Z observado = {z_statistic:.2f}')
+    plt.axvline(z_critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {z_critical_value:.2f}')
+    plt.title('Right-Tailed Test (Distribución Z)')
+    plt.xlabel('Valor Z')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
     
+
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------------------- Graficador left-tail Z test -------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+ 
+
+def graficar_left_z_test(z_critical_value, z_statistic):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=0, scale=1)
+    plt.plot(x, y, label='Distribución Z')
+    plt.fill_between(x, y, where=(x <= z_critical_value), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(z_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor Z observado = {z_statistic:.2f}')
+    plt.axvline(z_critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {z_critical_value:.2f}')
+    plt.title('Left-Tailed Test (Distribución Z)')
+    plt.xlabel('Valor Z')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------- Graficador two-tail normal test -----------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
+ 
+def graficar_two_z_test(critical_value_lower, critical_value_upper, z_statistic):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.norm.pdf(x, loc=0, scale=1)
+    plt.plot(x, y, label='Distribución Z')
+    plt.fill_between(x, y, where=(x <= critical_value_lower) | (x >= critical_value_upper), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(z_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor Z observado = {z_statistic:.2f}')
+    plt.axvline(critical_value_lower, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Inferior = {critical_value_lower:.2f}')
+    plt.axvline(critical_value_upper, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Superior = {critical_value_upper:.2f}')
+    plt.title('Two-Sided Test (Distribución Z)')
+    plt.xlabel('Valor Z')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+    
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------------------ Graficador right-tail t test -------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
+  
+def graficar_right_t_test(t_critical_value, t_statistic, df):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.t.pdf(x, df)
+    plt.plot(x, y, label='Distribución t-student')
+    plt.fill_between(x, y, where=(x >= t_critical_value), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(t_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor t observado = {t_statistic:.2f}')
+    plt.axvline(t_critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {t_critical_value:.2f}')
+    plt.title('Right-Tailed Test (Distribución t-student)')
+    plt.xlabel('Valor t')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------------------- Graficador left-tail Z test -------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+ 
+
+def graficar_left_t_test(t_critical_value, t_statistic, df):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.t.pdf(x, df)
+    plt.plot(x, y, label='Distribución t-student')
+    plt.fill_between(x, y, where=(x <= t_critical_value), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(t_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor t observado = {t_statistic:.2f}')
+    plt.axvline(t_critical_value, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico = {t_critical_value:.2f}')
+    plt.title('Left-Tailed Test (Distribución t-student)')
+    plt.xlabel('Valor t')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#---------------------------------------- Graficador two-tail normal test ------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+
+ 
+def graficar_two_t_test(critical_value_lower, critical_value_upper, t_statistic, df):
+    x = np.linspace(-4, 4, 1000)
+    plt.figure(figsize=(8, 4))
+    y = stats.t.pdf(x, df)
+    plt.plot(x, y, label='Distribución t-student')
+    plt.fill_between(x, y, where=(x <= critical_value_lower) | (x >= critical_value_upper), color='red', alpha=0.5, label='Región de rechazo')
+    plt.axvline(t_statistic, color='blue', linestyle='dashed', linewidth=2, label=f'Valor t observado = {t_statistic:.2f}')
+    plt.axvline(critical_value_lower, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Inferior = {critical_value_lower:.2f}')
+    plt.axvline(critical_value_upper, color='green', linestyle='dashed', linewidth=2, label=f'Valor Crítico Superior = {critical_value_upper:.2f}')
+    plt.title('Two-Sided Test (Distribución t-student)')
+    plt.xlabel('Valor t')
+    plt.ylabel('Densidad de probabilidad')
+    plt.legend()
+    plt.grid(linestyle='--', alpha=0.7)
+    plt.show()
+    
+
+#-------------------------------------------------------------------------------------------------------------------
+#------------------------------------ Graficador violin segmentacion categórica ------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
+  
+    
+def grafico_violin_segmentacion_categorica(df, variable_categorica, variable_numerica):
+    plt.figure(figsize=(8, 4))
+    sns.violinplot(x=df[variable_categorica], y=df[variable_numerica], inner='quartiles')
+
+    for category in df[variable_categorica].unique():
+   
+        data_segment = df[df[variable_categorica] == category][variable_numerica]
+        plt.boxplot(data_segment, positions=[list(df[variable_categorica].unique()).index(category)], widths=0.1,
+                    patch_artist=True, boxprops=dict(facecolor='lightblue', color='black'),
+                    medianprops=dict(color='red'),
+                    capprops=dict(color='blue'))
+
+    plt.xlabel(f'{variable_categorica}')
+    plt.ylabel('Valores estandarizados')
+    plt.title(f'Diagrama de Violín de {variable_numerica} segmentado por {variable_categorica}')
+    plt.xticks(rotation=45)
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.show()
     
 #--------------------------------------------------
 
